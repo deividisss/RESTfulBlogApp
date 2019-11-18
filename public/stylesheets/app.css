@@ -1,3 +1,8 @@
 i.icon {
   font-size: 2em;
 }
+
+.container.main {
+  /* background: red; */
+  margin-top: 7em;
+}
