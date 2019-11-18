@@ -1,3 +1,4 @@
+<% include ./partials/header %>
 <h1>INDEX PAGE</h1>
 <% blogs.forEach(element => { %>
 <div>
@@ -6,4 +7,4 @@
   <span><%=element.created%></span>
   <p><%=element.body%></p>
 </div>
-<%}); %>
+<%}); %> <% include ./partials/footer %>
