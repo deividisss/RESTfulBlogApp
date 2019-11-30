@@ -5,6 +5,8 @@
   <h2><%=element.title%></h2>
   <img src="<%=element.image%>" alt="<%=element.title%>" />
   <span><%=element.created%></span>
-  <p><%=element.body%></p>
+  <p><%=element.body.substring(0, 100)%>...</p>
+  <a href="/blogs/<%=element._id %>">Read More</a>
 </div>
+<br /><br />
 <%}); %> <% include ./partials/footer %>

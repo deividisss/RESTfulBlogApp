@@ -70,6 +70,23 @@ app.get("/blogs/new", function(req, res) {
   res.render("new");
 });
 
+// SHOW ROUTE
+app.get("/blogs/:id", function(req, res) {
+  var blog_id = req.params.id;
+  console.log(blog_id);
+  Blog.findById(blog_id, function(err, foundBlog) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(foundBlog);
+      res.render("show", { Blog: foundBlog });
+      // res.send("This is show route " + blog_id);
+    }
+  });
+  // req.param.variable_name;
+  // Blog.find()
+});
+
 app.listen(3000, function() {
   console.log("Listening on port " + this.address().port);
 });
