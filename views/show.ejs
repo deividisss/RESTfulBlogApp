@@ -13,6 +13,14 @@
     <div class="description">
       <p><%-Blog.body%></p>
     </div>
+    <a class="ui blue basic button" href="/blogs/<%=Blog._id %>/edit">Edit</a>
+    <form
+      id="delete"
+      action="/blogs/<%=Blog._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button class="ui red basic button">Delete</button>
+    </form>
   </div>
 </div>
 <% include ./partials/footer %>

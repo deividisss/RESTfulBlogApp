@@ -87,6 +87,29 @@ app.put("/blogs/:id", function(req, res) {
   });
 });
 
+// EDIT ROUTE
+app.get("/blogs/:id/edit", function(req, res) {
+  Blog.findById(req.params.id, function(err, foundBlog) {
+    if (err) {
+      console.log(err);
+      res.redirect("/blogs");
+    } else {
+      res.render("edit", { blog: foundBlog });
+    }
+  });
+});
+
+//DELETE ROUTE
+app.delete("/blogs/:id", function(req, res) {
+  Blog.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect("/blogs");
+    } else {
+      res.redirect("/blogs");
+    }
+  });
+});
+
 // SHOW ROUTE
 app.get("/blogs/:id", function(req, res) {
   var blog_id = req.params.id;
@@ -101,18 +124,6 @@ app.get("/blogs/:id", function(req, res) {
   });
   // req.param.variable_name;
   // Blog.find()
-});
-
-// EDIT ROUTE
-app.get("/blogs/:id/edit", function(req, res) {
-  Blog.findById(req.params.id, function(err, foundBlog) {
-    if (err) {
-      console.log(err);
-      res.redirect("/blogs");
-    } else {
-      res.render("edit", { blog: foundBlog });
-    }
-  });
 });
 
 app.listen(3000, function() {
